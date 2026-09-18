@@ -171,6 +171,8 @@ export function readPackage(packagePath, { config: suppliedConfig } = {}) {
     selection: String(rawWechatLink.selection || (rawWechatLink.query ? "search" : "none")).trim(),
     query: String(rawWechatLink.query || "").trim(),
     expectedName: String(rawWechatLink.expectedName || "").trim(),
+    expectedProductId: String(rawWechatLink.expectedProductId || rawWechatLink.productId || "").trim(),
+    expectedPrice: Number.isFinite(Number(rawWechatLink.expectedPrice)) ? Number(rawWechatLink.expectedPrice) : null,
   };
   const wechatAiGenerated = typeof parsed.wechatAiGenerated === "boolean"
     ? parsed.wechatAiGenerated
